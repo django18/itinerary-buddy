@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { ItineraryDetailsType } from "../types";
 
-const ItineraryDetails = ({ itinerary }) => {
+const ItineraryDetails = ({ itinerary }: ItineraryDetailsType) => {
   return (
     <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg mt-10">
       <h2 className="text-3xl font-bold mb-6">{itinerary.title}</h2>
@@ -26,21 +27,6 @@ const ItineraryDetails = ({ itinerary }) => {
       </div>
     </div>
   );
-};
-
-ItineraryDetails.propTypes = {
-  itinerary: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    activities: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        img: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  }).isRequired,
 };
 
 export default ItineraryDetails;

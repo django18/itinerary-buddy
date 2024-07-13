@@ -5,15 +5,16 @@ import { getItinerary } from "./actions";
 import HeaderImg from "./assets/header-travel.svg";
 import TravelForm from "./components/TravelForm";
 import ItineraryDetails from "./components/ItineraryDetails";
+import { FormData, Itinerary } from "./types";
 
 // Force the page to be dynamic and allow streaming responses up to 30 seconds
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
 export default function Home() {
-  const [generation, setGeneration] = useState(null);
+  const [generation, setGeneration] = useState<Itinerary | null>(null);
 
-  const handleGetItinerary = async (formData) => {
+  const handleGetItinerary = async (formData: FormData) => {
     const { itinerary } = await getItinerary(formData);
     setGeneration(itinerary);
   };

@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { FormData } from "../types";
 
-export default function TravelForm({ onSubmit }) {
+interface TravelFormProps {
+  onSubmit: (formData: FormData) => void;
+}
+
+export default function TravelForm({ onSubmit }: TravelFormProps) {
   const [formData, setFormData] = useState({
     travelDays: 3,
     travelDestination: "Goa,India",
     travelType: "adventure",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -15,7 +22,7 @@ export default function TravelForm({ onSubmit }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(formData);
   };

@@ -3,8 +3,9 @@
 import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
 import { z } from "zod";
+import { FormData } from "./types";
 
-export async function getItinerary(input) {
+export async function getItinerary(input: FormData) {
   "use server";
 
   const { travelDestination, travelDays, travelType } = input;
@@ -23,7 +24,6 @@ export async function getItinerary(input) {
             name: z.string().describe("Title of the activity."),
             location: z.string().describe("Location of the activity."),
             description: z.string().describe("Description of the activity."),
-            img: z.string().describe("Google Image link of the place."),
           })
         ),
       }),
