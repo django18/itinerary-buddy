@@ -3,9 +3,10 @@ import { FormData } from "../types";
 
 interface TravelFormProps {
   onSubmit: (formData: FormData) => void;
+  isLoading: boolean;
 }
 
-export default function TravelForm({ onSubmit }: TravelFormProps) {
+export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
   const [formData, setFormData] = useState({
     travelDays: 3,
     travelDestination: "Goa,India",
@@ -95,6 +96,7 @@ export default function TravelForm({ onSubmit }: TravelFormProps) {
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            disabled={isLoading}
           >
             Generate Itinerary
           </button>

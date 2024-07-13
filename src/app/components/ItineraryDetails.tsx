@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
-import { ItineraryDetailsType } from "../types";
+import { Itinerary, ItineraryDetailsType } from "../types";
 
-const ItineraryDetails = ({ itinerary }: ItineraryDetailsType) => {
+interface ItineraryDetailsProps {
+  itinerary: Itinerary;
+}
+
+const ItineraryDetails = ({ itinerary }: ItineraryDetailsProps) => {
   return (
     <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg mt-10">
       <h2 className="text-3xl font-bold mb-6">{itinerary.title}</h2>

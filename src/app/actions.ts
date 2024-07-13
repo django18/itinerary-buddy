@@ -11,6 +11,8 @@ export async function getItinerary(input: FormData) {
   const { travelDestination, travelDays, travelType } = input;
   const prompt = `Generate a ${travelDestination} ${travelType} itinerary for ${travelDays} days`;
 
+  console.log({ input, prompt });
+
   const { object: itinerary } = await generateObject({
     model: openai("gpt-3.5-turbo"),
     system: "You are a smart travel itinerary planner",

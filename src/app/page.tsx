@@ -13,10 +13,14 @@ export const maxDuration = 30;
 
 export default function Home() {
   const [generation, setGeneration] = useState<Itinerary | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleGetItinerary = async (formData: FormData) => {
+    console.log({ formData });
+    setIsLoading(true);
     const { itinerary } = await getItinerary(formData);
     setGeneration(itinerary);
+    setIsLoading(false);
   };
 
   return (
@@ -35,7 +39,7 @@ export default function Home() {
         </div>
       </header>
       <main className="container mx-auto mt-6 p-6">
-        <TravelForm onSubmit={handleGetItinerary} />
+        <TravelForm onSubmit={handleGetItinerary} isLoading={isLoading} />
         {generation && <ItineraryDetails itinerary={generation} />}
         <div className="flex flex-wrap -mx-4 justify-stretch items-stretch">
           <div className="w-full md:w-1/3 px-4 mb-8 flex-grow h-full">
