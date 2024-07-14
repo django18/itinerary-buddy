@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { FormData } from "../types";
+import { Rings } from "react-loader-spinner";
 
 interface TravelFormProps {
   onSubmit: (formData: FormData) => void;
@@ -29,10 +30,10 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
   };
 
   return (
-    <div className="w-2/3 mx-auto bg-white p-8 rounded-lg">
+    <div className="mx-auto bg-white p-8 rounded-lg">
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <div className="flex justify-around items-center">
-          <div className="mb-4 ">
+        <div className="flex flex-col justify-stretch items-center gap-5 md:flex-row">
+          <div className="mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelDays"
@@ -45,11 +46,11 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
               name="travelDays"
               value={formData.travelDays}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow-md rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelDestination"
@@ -62,11 +63,11 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
               name="travelDestination"
               value={formData.travelDestination}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow-md rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelType"
@@ -78,7 +79,7 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
               name="travelType"
               value={formData.travelType}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow-md rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
               required
             >
               <option value="" disabled>
@@ -91,14 +92,17 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
             </select>
           </div>
         </div>
-
         <div className="flex">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-48 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex justify-center"
             disabled={isLoading}
           >
-            Generate Itinerary
+            {isLoading ? (
+              <Rings width={25} height={25} color="#fff" />
+            ) : (
+              "Generate Itinerary"
+            )}
           </button>
         </div>
       </form>

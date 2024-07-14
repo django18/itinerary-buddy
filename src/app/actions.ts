@@ -15,7 +15,7 @@ export async function getItinerary(input: FormData) {
 
   const { object: itinerary } = await generateObject({
     model: openai("gpt-3.5-turbo"),
-    system: "You are a smart travel itinerary planner",
+    system: "You are a travel itinerary planner",
     prompt,
     schema: z.object({
       itinerary: z.object({

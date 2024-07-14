@@ -6,6 +6,7 @@ import HeaderImg from "./assets/header-travel.svg";
 import TravelForm from "./components/TravelForm";
 import ItineraryDetails from "./components/ItineraryDetails";
 import { FormData, Itinerary } from "./types";
+import Image from "next/image";
 
 // Force the page to be dynamic and allow streaming responses up to 30 seconds
 export const dynamic = "force-dynamic";
@@ -27,7 +28,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-between">
       <header className="text-white p-6 text-center">
         <h1 className="flex flex-col items-center gap-4 text-6xl font-bold tracking-tight text-gray-700 sm:text-6xl">
-          <img src={HeaderImg} className="w-32 h-32" />
+          <Image src={HeaderImg} className="w-32 h-32" alt="itinerary" />
           <span>Travel AI</span>
         </h1>
         <h2 className="text-4xl text-gray-700 sm:text-6xl">
@@ -42,14 +43,14 @@ export default function Home() {
         <TravelForm onSubmit={handleGetItinerary} isLoading={isLoading} />
         {generation && <ItineraryDetails itinerary={generation} />}
         <div className="flex flex-wrap -mx-4 justify-stretch items-stretch">
-          <div className="w-full md:w-1/3 px-4 mb-8 flex-grow h-full">
-            <div className="bg-white shadow-lg rounded-lg p-6">
+          <div className="w-full md:w-1/3 px-4 mb-8 flex-grow">
+            <div className="bg-white shadow-lg rounded-lg p-6 h-full">
               <h2 className="text-2xl font-bold mb-4">Create Your Itinerary</h2>
               <p className="text-gray-600 mb-4">
                 Start planning your trip by adding destinations, activities, and
                 more.
               </p>
-              <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+              <button className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-900">
                 Get Started
               </button>
             </div>
@@ -62,7 +63,7 @@ export default function Home() {
                 Explore the top travel destinations recommended by our
                 community.
               </p>
-              <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+              <button className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-900">
                 Explore
               </button>
             </div>
@@ -74,7 +75,7 @@ export default function Home() {
               <p className="text-gray-600 mb-4">
                 Read our expert tips to ensure a smooth and enjoyable trip.
               </p>
-              <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+              <button className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-900">
                 Learn More
               </button>
             </div>
