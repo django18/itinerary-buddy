@@ -12,6 +12,16 @@ export type Itinerary = {
     location: string;
     description: string;
   }[];
+  attractions: {
+    name: string;
+    location: string;
+    description: string;
+  }[];
+  food: {
+    name: string;
+    location: string;
+    description: string;
+  }[];
 };
 
 export type ItineraryDetailsType = {

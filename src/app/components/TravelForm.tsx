@@ -10,7 +10,7 @@ interface TravelFormProps {
 export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
   const [formData, setFormData] = useState({
     travelDays: 3,
-    travelDestination: "Goa,India",
+    travelDestination: "Goa",
     travelType: "adventure",
   });
 
@@ -30,10 +30,10 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
   };
 
   return (
-    <div className="mx-auto bg-white p-8 rounded-lg">
+    <div className="mx-auto bg-white">
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <div className="flex flex-col justify-stretch items-center gap-5 md:flex-row">
-          <div className="mb-4 flex-1">
+        <div className="w-full flex flex-col justify-stretch items-center gap-5 md:flex-row">
+          <div className="w-full mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelDays"
@@ -50,7 +50,7 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
               required
             />
           </div>
-          <div className="mb-4 flex-1">
+          <div className="w-full mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelDestination"
@@ -67,7 +67,7 @@ export default function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
               required
             />
           </div>
-          <div className="mb-4 flex-1">
+          <div className="w-full mb-4 flex-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="travelType"

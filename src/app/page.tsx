@@ -17,7 +17,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleGetItinerary = async (formData: FormData) => {
-    console.log({ formData });
     setIsLoading(true);
     const { itinerary } = await getItinerary(formData);
     setGeneration(itinerary);
@@ -42,7 +41,7 @@ export default function Home() {
       <main className="container mx-auto mt-6 p-6">
         <TravelForm onSubmit={handleGetItinerary} isLoading={isLoading} />
         {generation && <ItineraryDetails itinerary={generation} />}
-        <div className="flex flex-wrap -mx-4 justify-stretch items-stretch">
+        <div className="flex flex-wrap -mx-4 justify-stretch items-stretch mt-10">
           <div className="w-full md:w-1/3 px-4 mb-8 flex-grow">
             <div className="bg-white shadow-lg rounded-lg p-6 h-full">
               <h2 className="text-2xl font-bold mb-4">Create Your Itinerary</h2>
