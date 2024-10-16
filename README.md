@@ -9,6 +9,15 @@ npm install
 yarn install
 ```
 
+Create a .env.local file in your project root and add your OpenAI API Key. This key is used to authenticate your application with the OpenAI service.
+
+```bash
+OPENAI_API_KEY=xxxxxxxxx
+```
+
+Replace xxxxxxxxx with your actual OpenAI API key.
+
+
 First, run the development server:
 
 ```bash
